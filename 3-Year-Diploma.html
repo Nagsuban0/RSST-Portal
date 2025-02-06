@@ -1,0 +1,315 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Kaizen Program - Ninja School</title>
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+    <style>
+        :root {
+            --primary-color: #491de7;
+            --secondary-color: #f9f9f9;
+            --accent-color: #e74c3c;    
+            --text-color: #333;
+            --card-shadow: 0 4px 6px rgba(38, 57, 85, 0.1);
+        }*
+        body {
+            font-family: Arial, sans-serif; 
+            line-height: 1.6;
+            background-color: #5497ee;
+            color: var(--text-color);
+            padding-top: 56px;
+        }
+        .container {
+            padding-bottom: 1%;
+            
+        }
+        .navbar-dark .navbar-nav .nav-link {
+            color: #f5f5f5;
+        }
+        .navbar-nav {
+            align-items: center;
+        }
+
+        .location-icon {
+            color: white;
+            font-size: 25px;
+            text-decoration: none;
+            position: fixed;
+            top: 10px;
+            left: 150px;
+            z-index: 1000;
+            display: flex
+        ;
+            align-items: center;
+        }
+        .location-icon:hover {
+            color: #ddd;
+        }
+
+        .kaizen-container {
+            display: flex;
+            max-width: 1200px;
+            margin: 2rem auto;
+            box-shadow: var(--card-shadow);
+            border-radius: 8px;
+            overflow: hidden;
+            margin-top: 5%;
+            margin-bottom: 5%;
+        }
+
+        .kaizen-image {
+            flex: 1;
+            background-image: url('/assets/bg-img/bg4.webp');
+            background-size: cover;
+            background-position: center;
+            min-height: 400px;
+        }
+
+        .kaizen-content {
+            flex: 1;
+            background-color: #ffffff;
+            padding: 2rem;
+        }
+
+        .kaizen-title {
+            color: var(--accent-color);
+            margin-bottom: 1rem;
+        }
+
+        .kaizen-description {
+            margin-bottom: 1.5rem;
+        }
+
+        .kaizen-features {
+            list-style-type: none;
+            padding-left: 0;
+        }
+
+        .kaizen-features li {
+            margin-bottom: 0.5rem;
+            padding-left: 1.5rem;
+            position: relative;
+        }
+
+        .kaizen-features li::before {
+            content: "\2022";
+            color: var(--accent-color);
+            font-weight: bold;
+            position: absolute;
+            left: 0;
+        }
+        .follow-section {
+            text-align: center; /* Centers the "Follow Us" heading */
+            margin-top: 1rem;
+        }
+
+        .footer_section {
+            background-color: #000000;
+            color: #fff;
+            padding: 40px 0;
+            padding-bottom: 1%;
+            text-align: center;
+        }
+        
+        .footer_section h3 {
+            margin-bottom: 15px;
+            font-size: 1.5rem;
+            font-weight: bold;
+        }
+        
+        .footer_section p {
+            margin: 0;
+            line-height: 1.6;
+        }
+        /*footer section color*/
+        .footer_section a {
+            color: #b9cccc;
+            text-decoration: none;
+        }
+        
+        .footer_section a:hover {
+            color: #92caf0;
+        }
+        
+        .social-links {
+            display: flex;
+            justify-content: center; 
+            gap: 10px;
+            margin-top: 10px;
+            flex-wrap: wrap;
+        }
+        /*for social medial footer*/
+        .social-links a {
+            display: inline-block;
+            padding: 10px 20px;
+            color: #fff;
+            background-color: #050505;
+            border: 2px solid aliceblue;
+            border-radius: 5px;
+            text-decoration: none;
+            font-size: 16px;
+            transition: background-color 0.3s, color 0.3s;
+        }
+        
+        .social-links a:hover {
+            background-color: #edf2f8;
+            color: #e9ecf0;
+            border-color: #e6ecf3;
+        }
+        
+        .copyright p {
+            margin-top: 2rem;
+            margin-bottom: 1rem;
+            font-size: 0.9rem;
+        }
+        
+        .choros-link {
+            color: #2b81d6;
+            font-weight: bold;
+        }
+        
+        .choros-link:hover {
+            color: #0a0b0c;
+        }
+
+        .dropdown-menu {
+            background-color: #3387db;
+        }
+        .dropdown-item {
+            color: #ffff;
+            text-align: center;
+        }
+        .dropdown-item:hover{
+            color: #ffff;
+            text-align: center;
+            background-color:#000000;
+        }
+        @media (max-width: 768px) {
+            .kaizen-container {
+                flex-direction: column;
+            }
+            
+            .kaizen-image {
+                min-height: 200px;
+            }
+            
+            .footer_section {
+                padding: 30px 15px;
+            }
+            
+            .social-links {
+                flex-direction: column;
+                align-items: center;
+                gap: 10px;
+            }
+
+            .container {
+                padding-bottom: 1%;
+            }
+            .social-links {
+                display: inline-block;
+                justify-content: center;
+                gap: 15px;
+                margin-top: 15px;
+                flex-wrap: wrap;
+            }
+
+        }
+        
+    </style>
+</head>
+<body>
+    <header>
+        <nav class="navbar navbar-expand-lg navbar-dark bg-primary fixed-top">
+            <div class="container">
+                <!-- Brand Name: Full name for large screens, shortened for mobile -->
+                <a class="navbar-brand" href="index.html">
+                    <!-- Full name for larger screens -->
+                    <span class="d-none d-lg-inline"><strong>Renaissance School of Science and Technology</strong></span>
+                    <!-- Shortened name for mobile -->
+                    <span class="d-inline d-lg-none"><strong>RSST</strong></span>
+                </a>
+        
+                <!-- Location Icon (Changes with screen size) -->
+             <!---   <a href="https://www.google.com/maps/place/Renaissance+School+of+Science+and+Technology/@14.5024652,121.2306744,17z/data=!4m14!1m7!3m6!1s0x3397c191edfc6097:0x717336810a32b5c!2sRenaissance+School+of+Science+and+Technology!8m2!3d14.5023912!4d121.2330301!16s%2Fg%2F1vtzdrp9!3m5!1s0x3397c191edfc6097:0x717336810a32b5c!8m2!3d14.5023912!4d121.2330301!16s%2Fg%2F1vtzdrp9?entry=ttu&g_ep=EgoyMDI1MDEyMC4wIKXMDSoASAFQAw%3D%3D" class="location-icon">
+                    Location icon for both desktop and mobile 
+                    <i class="fas fa-map-marker-alt"></i> --> 
+            <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse" id="navbarNav">
+                <ul class="navbar-nav ml-auto">
+                    <li class="nav-item"><a class="nav-link" href="index.html">Home</a></li>
+                    
+                    <!-- Program Dropdown -->
+                    <li class="nav-item dropdown">
+                        <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                            Program
+                        </a>
+                        <div class="dropdown-menu" aria-labelledby="navbarDropdown">
+                            <a class="dropdown-item" href="elementary.html">Emelentary</a>
+                            <a class="dropdown-item" href="JuniorHigh.html">Junior High</a>
+                            <a class="dropdown-item" href="SeniorHigh.html">Senior High</a>
+                            <a class="dropdown-item" href="3-Year-Diploma.html">3-Year Diploma</a>
+                            <a class="dropdown-item" href="4-Year-College.html">4-Year College</a>
+                        </div>
+                    </li>
+                </ul>
+            </div>
+        </nav>
+        
+    </header>
+    
+    <main>
+        <div class="kaizen-container">
+            <div class="kaizen-image"></div>
+            <div class="kaizen-content">
+                <h1 class="kaizen-title">3-Year Diploma</h1>
+                <p class="kaizen-description">
+                    Lorem ipsum, dolor sit amet consectetur adipisicing elit. Aperiam aut omnis veniam similique ducimus, blanditiis a. Ex consequatur atque nisi fuga? Laborum adipisci dolorem consectetur fuga repellendus aliquam suscipit repudiandae!
+                </p>
+                <p class="kaizen-description">
+                    Our Rsst Program offers:
+                </p>
+                <ul class="kaizen-features">
+                    <li>Unlimited classes per week</li>
+                    <li>10% sibling discount available</li>
+                </ul>
+                <p class="kaizen-description">
+                    Price: £220 per term
+                </p>
+                <a href="N/A" class="btn btn-primary">Enroll Now</a>
+            </div>
+        </div>
+    </main>
+
+    <footer id="contact" class="footer_section">
+    <div class="container text-center">
+        <h3>Renaissance School of Science and technology Inc.,</h3>
+        <p>04 National Road Sitio Paglabas, Brgy. San Pedro, Morong, Rizal</p>
+        <p>Morong, Rizal</p>
+        <p>Email: <a href="Email here">N/A</a></p>
+        
+        <div class="follow-section">
+            <h3>Follow Us</h3>
+            <div class="social-links">
+                <a href="https://www.facebook.com/Rsstincofficial" target="_blank" class="btn btn-outline-light">Facebook</a>
+                <a href="N/A" target="_blank" class="btn btn-outline-light">Instagram</a>
+            </div>
+        </div>
+        
+        <div class="copyright">
+            <p>&copy; 2024 All Rights Reserved By
+                <a href="https://wWW.facebook.com/Spiderken1" class="kenneth-link">Kenneth Nagsuban</a>
+            </p>
+        </div>
+    </div>
+</footer>
+    <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.1/dist/umd/popper.min.js"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+
+</body>
+</html>

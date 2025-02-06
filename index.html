@@ -1,0 +1,1461 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no" />
+    <title>RSST</title>
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" />
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css" />
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" rel="stylesheet">
+
+    <style>
+
+        :root {
+            --primary-color: #4a4a4a;
+            --secondary-color: #f9f9f9;
+            --accent-color: #e74c3c;    
+            --text-color: #333;
+            --card-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+        }* {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+        }               
+
+
+        body {
+            font-family: Arial, sans-serif;
+            line-height: 1.6;
+            background-color: var(--secondary-color);
+            color: var(--text-color);
+            padding: 0px;
+            text-align: center;
+        }
+
+
+        .hero_area {
+            position: relative;
+            height: 80vh;
+            color: #ffffff00;
+            overflow: hidden;
+        }
+
+        .hero_area::before {
+            content: "";
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: rgba(0, 0, 0, 0.534);
+            z-index: 1;
+        }
+
+        .navbar-dark .navbar-nav .nav-link {
+            color: rgb(255 255 255);
+        }
+
+        .text {
+            color: #f8f9fa;
+            font-size: 3.5rem;
+            font-weight: bolder;
+        }
+        .text1 {
+            color: #f8f9fa;
+            font-size: 1.5rem;
+        }
+        .hero-carousel {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100vh;
+        }
+        .hero-carousel .carousel-item {
+            height: 100vh;
+            transition: transform 5s ease-in-out;
+                
+        }
+        
+        .carousel-inner {
+            display: flex;
+            width: 100%;
+            transition: transform 5s ease-in-out; 
+        }
+
+        .carousel-item {
+            flex: 0 0 100%; 
+            
+        }
+
+        .card {
+            position: relative;
+            display: -ms-flexbox;
+            display: flex;
+            -ms-flex-direction: column;
+            flex-direction: column;
+            width: 350px;
+            padding: 10px;
+            word-wrap: break-word;
+            background-color: #ffffffa8;
+            background-clip: border-box;
+            border: 1px solid rgba(0, 0, 0, .125);
+            border-radius: .25rem;
+        }
+
+        .card-body1 {
+            color: #000;
+            background-color: rgba(255, 255, 255, 0.055);
+        }
+        
+        .hero-image {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;    
+            height: 100%;
+            background-size: cover;
+            background-position: center;
+            opacity: 0.8;
+        }
+        .hero-content {
+            position: relative;
+            z-index: 1;
+            padding-top: 100px;
+        }
+        .section-title {
+            margin-bottom: 30px;
+        }
+        .about-section, .program-section, .schedule-section, .coach-section, .testimonial-section {
+            padding: 60px 0;
+        }
+
+        .testimonial-section{
+            color: #000;
+            background-color: #e3e2e4;
+        }
+
+        .testimonial-item {
+            display: none;
+        }
+        .testimonial-item.active {
+            display: block;
+        }
+
+
+        .program-section {
+            padding: 60px 0;
+            background-color: #d1d1d1;
+        }
+        
+        
+        
+        
+        .program-section .container {
+            position: relative;
+            z-index: 2;
+        }
+        
+
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+
+        .section-title1{
+            color: #0b4b8b;
+            font-weight: bolder;
+        }
+
+        .row {
+            font-weight: bolder;
+            color: #f8f9fa;
+
+        }
+        .schedule-section {
+            position: relative;
+            background-image: url('/assets/bg-img/bg5.webp');
+            background-size: cover;
+            background-position: center;
+            background-repeat: no-repeat;
+            color: #ffffff71;
+            padding: 50px 0;
+            z-index: 1;
+            filter: grayscale(50%);
+        }   
+        
+        .schedule-section::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background-color: rgba(255, 255, 255, 0.315);
+            z-index: -1;
+
+        }
+        
+
+        .about-section{
+            background-color: #f8f9fa;
+        }
+        #coaches {
+            background-color: #d1d1d1d7;
+            padding: 50px 20px;
+        }
+        
+        .section-title {
+            text-align: center;
+            font-size: 2em;
+            margin-bottom: 30px;
+            color: #333333;
+        }
+        
+        .row {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 20px;
+            justify-content: center;
+        }
+        
+        .scholar-card {
+            background: #fff;
+            border-radius: 10px;
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+            padding: 20px;
+            text-align: center;
+            transition: transform 0.3s ease;
+        }
+
+        .scholar-card:hover {
+            transform: translateY(-5px);
+        }
+
+        .scholar-image-wrapper {
+            width: 200px;
+            height: 200px;
+            border-radius: 50%;
+            margin: 0 auto 20px;
+            padding: 10px;
+            position: relative;
+        }
+        
+        .scholar-image {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            border-radius: 50%;
+        }
+
+        .scholar-image-wrapper::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            border-radius: 50%;
+            padding: 5px;
+            background: linear-gradient(45deg, #f3ec78, #af4261);
+            -webkit-mask: 
+                linear-gradient(#fff 0 0) content-box, 
+                linear-gradient(#fff 0 0);
+            -webkit-mask-composite: xor;
+            mask-composite: exclude;
+        }
+        
+        .scholar-image-wrapper.blue::before {
+            background: linear-gradient(45deg, #4e54c8, #8f94fb);
+        }
+        
+        .scholar-image-wrapper.green::before {
+            background: linear-gradient(45deg, #11998e, #38ef7d);
+        }
+        
+        .scholar-image-wrapper.red::before {
+            background: linear-gradient(45deg, #ff416c, #ff4b2b);
+        }
+        
+        .scholar-image-wrapper.yellow::before {
+            background: linear-gradient(45deg, #f7971e, #ffd200);
+        }
+        
+        .scholar-card h3 {
+            font-size: 1.5em;
+            margin-bottom: 10px;
+            color: #333;
+        }
+        .scholar-card p {
+            font-size: 1em;
+            color: #666;
+        }
+        .scholar-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 6px 15px rgba(0, 0, 0, 0.2);
+        }
+        
+        .footer_section {
+            background-color: #000;
+            color: #fff;
+            padding: 40px 0;
+            padding-bottom: 1%;
+        }
+
+        .copyright p {
+            margin-top: 2rem;
+            margin-bottom: 1rem;
+        }
+        .btn-primary {
+            color: #fff;
+            background-color:#343a40;
+            border-color:aliceblue;
+        }
+
+        .btn-custom {
+            background-color: #8ad4ff;
+            color: #000;
+            border: none;
+        }
+        .btn-custom:hover {
+            background-color: #92caf0;
+            color: #000;
+        }
+        .table {
+            background-color: #fff;
+        }
+
+        .container h1 {
+            padding-top: 20%;
+        }
+        .container h2 {
+            padding-top: 0%;
+        }
+
+        .next, .prev {
+            color: #343a40;
+        }
+        
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+.container {
+    width: 100%;
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 0 20px;
+}
+
+
+
+.scholar-section {
+    padding: 60px 0;
+    background-color: #fff;
+}
+
+.section-title {
+    text-align: center;
+    font-size: 2.5em;
+    margin-bottom: 40px;
+    color: #333;
+}
+
+.scholar-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+    gap: 30px;
+    justify-items: center;
+}
+
+/* Schedule grid */
+.schedule-grid {
+    display: grid;
+    gap: 24px;
+    grid-template-columns: 1fr;
+}
+
+.schedule-card {
+    background: #ffffffcb;
+    border-radius: 8px;
+    box-shadow: 0 1px 3px rgba(0, 0, 0, 0.1);
+    overflow: hidden;
+    border: 1px solid #eee;
+}
+
+.day-header {
+    background: #1a1a1a;
+    color: #fff;
+    padding: 16px 20px;
+    font-size: 18px;
+    font-weight: 500;
+}
+
+.schedule-content {
+    padding: 20px;
+}
+
+
+/* Time blocks */
+.time-block {
+    margin-bottom: 24px;
+}
+
+.time-block:last-child {
+    margin-bottom: 0;
+}
+
+.time {
+    font-weight: 600;
+    color: #000;
+    margin-bottom: 8px;
+    font-size: 16px;
+}
+
+.classes {
+    display: flex;
+    flex-direction: column;
+    gap: 4px;
+}
+
+.class {
+    color: #666;
+    font-size: 14px;
+}
+.location-icon {
+    color: white;
+    font-size: 25px;
+    text-decoration: none;
+    position: fixed;
+    top: 10px;
+    left: 140px;
+    z-index: 1000;
+    display: flex
+;
+    align-items: center;
+}
+@media (min-width: 768px) {
+    .schedule-grid {
+        grid-template-columns: repeat(2, 1fr);
+    }
+    .location-icon {
+        color: white;
+        font-size: 25px;
+        margin-left: 10px;
+        vertical-align: middle; 
+        text-decoration: none; 
+    }
+    .location-icon:hover {
+        color: #ddd; 
+    }
+    .location-icon {
+        color: white;
+        font-size: 25px;
+        margin-left: 10px;
+        vertical-align: middle; 
+        text-decoration: none; 
+    }
+    
+    .location-icon:hover {
+        color: #ddd; 
+    }
+    
+    
+}
+
+@media (min-width: 1024px) {
+    .schedule-grid {
+        grid-template-columns: repeat(3, 1fr);
+    }
+
+}
+    /* Mobile optimizations */
+@media (max-width: 480px) {
+    .container {
+        padding: 0 16px;
+    }
+
+    .hero-content {
+        position: relative;
+        z-index: 2;
+        margin-top: 10%;
+
+    }
+    .location-icon {
+        color: white;
+        font-size: 25px;
+        position: absolute; 
+        top: 10px;
+        left: 40px;
+        vertical-align: middle;
+        text-decoration: none;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+    }
+    
+    .parent-container {
+        position: relative;
+    }
+    
+
+
+    .section-title {
+        font-size: 28px;
+        margin-bottom: 24px;
+    }
+
+    .schedule-grid {
+        gap: 16px;
+    }
+
+    .day-header {
+        padding: 12px 16px;
+        font-size: 16px;
+    }
+
+    .schedule-content {
+        padding: 16px;
+    }
+
+    .time-block {
+        margin-bottom: 20px;
+    }
+
+    .scholar-grid {
+        grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+        gap: 20px;
+    }
+    
+    .scholar-card {
+        max-width: 220px;
+        min-height: 320px;
+    }
+    .scholar-card .bio {
+        position: relative;
+        font-size: 16px;
+        line-height: 1.5;
+    }
+    
+    .scholar-card .more-text {
+        display: none;
+    }
+    
+    .read-more {
+        color: #007bff;
+        cursor: pointer;
+        font-size: 14px;
+        text-decoration: underline;
+    }
+    
+    .read-more:hover {
+        color: #0056b3;
+    }
+    .coach-image-wrapper {
+        width: 150px;
+        height: 150px;
+    }
+
+    .card-container {
+        grid-template-columns: 1fr;
+        gap: 20px;
+        padding: 20px 0;
+    }
+    .program-card {
+        max-width: 100%;
+        margin-bottom: 20px;
+    }
+
+    .program-container {
+        padding: 0 15px;
+    }
+
+    .card-title {
+        font-size: 20px;
+    }
+
+    .card-price {
+        font-size: 18px;
+    }
+    .location-icon {
+        color: white;
+        font-size: 25px;
+        margin-left: 10px;
+        vertical-align: middle; 
+        text-decoration: none; 
+    }
+    
+    .location-icon:hover {
+        color: #ddd; 
+    }
+    .fa-solid, .fas {
+        font-family: "Font Awesome 6 Free";
+        font-weight: 900;
+        text-align: end;
+        margin-left: 100px;
+    }
+    
+}
+
+
+.program-card {
+    background-color: #fff;
+    border-radius: 10px;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+    overflow: hidden;
+    width: 100%;
+    max-width: 350px;
+    transition: transform 0.3s ease;
+    margin-bottom: 30px;
+}
+.program-card:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 6px 15px rgba(0, 0, 0, 0.2);
+}
+
+
+.card-image {
+    width: 100%;
+    height: 200px;
+    object-fit: cover;
+}
+
+.card-content {
+    padding: 20px;
+}
+
+.card-title {
+    font-size: 24px;
+    margin-bottom: 10px;
+    color: #333;
+    font-weight: bold;
+}
+
+.card-price {
+    font-size: 20px;
+    font-weight: bold;
+    color: #e74c3c;
+    margin-bottom: 15px;
+}
+
+.card-details {
+    list-style-type: none;
+    padding-left: 20px;
+}
+
+.card-details li {
+    margin-bottom: 8px;
+    color: #666;
+    position: relative;
+}
+
+.card-details li::before {
+    content: "•";
+    color: #e74c3c;
+    position: absolute;
+    left: -20px;
+}
+
+.program-container {
+    width: 100%;
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 0 20px;
+}
+
+.card-container {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    gap: 30px;
+    justify-items: center;
+    padding: 40px 0;
+}
+
+.location-icon {
+    color: white;
+    font-size: 25px;
+    margin-left: 10px;
+    vertical-align: middle; 
+    text-decoration: none; 
+}
+
+.location-icon:hover {
+    color: #ddd; 
+}
+
+.video-container {
+    width: 100%;
+    max-width: 730px;
+    margin: 0 auto;
+    background: #000;
+}
+
+.aspect-ratio-box {
+    position: relative;
+    padding-top: 56.25%; /* 16:9 Aspect Ratio */
+    height: 0;
+    overflow: hidden;
+}
+
+.video-thumbnail {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    width: 100%;
+    height: 100%;
+    object-fit: contain; /* Changed from cover to contain */
+    cursor: pointer;
+    background: #000;
+}
+
+.embed-responsive-item {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    border: none;
+    display: none;
+}
+
+.play-button {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    width: 85px;
+    height: 80px;
+    background-color: rgba(0, 0, 0, 0.7);
+    border-radius: 50%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+    z-index: 2;
+}
+
+.play-button:hover {
+    background-color: rgba(0, 0, 0, 0.9);
+}
+
+.play-button svg {
+    width: 40px;
+    height: 40px;
+    fill: white;
+}
+
+.dropdown-menu {
+    background-color: #343a40;
+}
+.dropdown-item {
+    color: #ffff;
+    text-align: center;
+}
+.dropdown-item:hover{
+    color: #ffff;
+    text-align: center;
+    background-color: #007bff;
+}
+
+/* Responsive Breakpoints */
+@media (max-width: 1200px) {
+    .video-container {
+        max-width: 600px;
+    }
+}
+
+@media (max-width: 992px) {
+    .video-container {
+        max-width: 500px;
+    }
+}
+
+@media (max-width: 768px) {
+    .video-container {
+        max-width: 100%;
+    }
+    .play-button {
+        width: 60px;
+        height: 60px;
+    }
+    .play-button svg {
+        width: 30px;
+        height: 30px;
+    }
+
+    @media (max-width: 768px) {
+        .coaches-grid {
+            display: grid
+    ;
+            grid-template-columns: 1fr 1fr;
+            grid-gap: 10px;
+            max-width: 100%;
+            margin: 0 auto;
+            box-sizing: border-box;
+            overflow: hidden;
+        }
+    }
+
+    .coach-card {
+        background: #f9f9f9;
+        padding: 15px;
+        text-align: center;
+        border: 1px solid #ddd;
+        border-radius: 5px;
+        box-sizing: border-box;
+    }
+    #coaches {
+        background-color: #d1d1d1d7;
+        padding: 24px 0px;
+    }
+}
+
+
+@media (max-width: 576px) {
+    .play-button {
+        width: 50px;
+        height: 50px;
+    }
+    .play-button svg {
+        width: 25px;
+        height: 25px;
+    }
+}
+
+@media (max-width: 390px) {
+    .play-button {
+        width: 50px;
+        height: 50px;
+    }
+    .play-button svg {
+        width: 25px;
+        height: 25px;
+    }
+
+    .coaches-grid {
+        grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+        gap: 20px;
+    }
+    
+    .coach-card {
+        max-width: 220px;
+        min-height: 320px;
+    }
+}
+.program-card {
+    display: block;
+    text-decoration: none;
+    color: inherit;
+    transition: transform 0.3s ease, box-shadow 0.3s ease, border-color 0.3s ease;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+    border-radius: 20px;
+    border: 2px solid transparent;
+    overflow: hidden;
+}
+
+.program-card:hover {
+    transform: scale(1.05);
+    box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2), 0 0 10px rgba(64, 134, 180, 0.7);
+    text-decoration: none;
+    border: 2px solid #4086b4;
+}
+.hero_area {
+    position: relative;
+    height: 70vh;
+    color: white;
+    display: flex;
+    justify-content: center;
+    text-align: center;
+    overflow: hidden;
+}
+
+.hero_area::before {
+    content: "";
+    position: absolute;
+    top: 0px;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(0, 0, 0, 0.623);
+    z-index: 1;
+}
+
+
+.hero-content {
+    position: relative;
+    z-index: 2;
+}
+
+    </style>
+</head>
+<body>
+    <header>
+        <nav class="navbar navbar-expand-lg navbar-dark bg-primary fixed-top">
+            <div class="container">
+                <!-- Brand Name: Full name for large screens, shortened for mobile -->
+                <a class="navbar-brand" href="index.html">
+                    <!-- Full name for larger screens -->
+                    <span class="d-none d-lg-inline"><strong>Renaissance School of Science and Technology</strong></span>
+                    <!-- Shortened name for mobile -->
+                    <span class="d-inline d-lg-none"><strong>RSST</strong></span>
+                </a>
+        
+                <!-- Location Icon (Changes with screen size) -->
+             <!---   <a href="https://www.google.com/maps/place/Renaissance+School+of+Science+and+Technology/@14.5024652,121.2306744,17z/data=!4m14!1m7!3m6!1s0x3397c191edfc6097:0x717336810a32b5c!2sRenaissance+School+of+Science+and+Technology!8m2!3d14.5023912!4d121.2330301!16s%2Fg%2F1vtzdrp9!3m5!1s0x3397c191edfc6097:0x717336810a32b5c!8m2!3d14.5023912!4d121.2330301!16s%2Fg%2F1vtzdrp9?entry=ttu&g_ep=EgoyMDI1MDEyMC4wIKXMDSoASAFQAw%3D%3D" class="location-icon">
+                    Location icon for both desktop and mobile 
+                    <i class="fas fa-map-marker-alt"></i> --> 
+            <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse" id="navbarNav">
+                <ul class="navbar-nav ml-auto">
+                    <li class="nav-item"><a class="nav-link" href="#home">Home</a></li>
+                    <li class="nav-item"><a class="nav-link" href="#about">About</a></li>
+                    
+                    <!-- Program Dropdown -->
+                    <li class="nav-item dropdown">
+                        <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                            Program
+                        </a>
+                        <div class="dropdown-menu" aria-labelledby="navbarDropdown">
+                            <a class="dropdown-item" href="elementary.html">Emelentary</a>
+                            <a class="dropdown-item" href="JuniorHigh.html">Junior High</a>
+                            <a class="dropdown-item" href="SeniorHigh.html">Senior High</a>
+                            <a class="dropdown-item" href="3-Year-Diploma.html">3-Year Diploma</a>
+                            <a class="dropdown-item" href="4-Year-College.html">4-Year College</a>
+                        </div>
+                    </li>
+        
+                    <li class="nav-item"><a class="nav-link" href="#class">Schedule</a></li>
+                    <li class="nav-item"><a class="nav-link" href="#scholar">Scholar</a></li>
+                    <li class="nav-item"><a class="nav-link" href="#testimonials">Testimonials</a></li>
+                </ul>
+            </div>
+        </nav>
+        
+    </header>
+    
+    
+    
+
+    <section id="home" class="hero_area">
+        <div id="heroCarousel" class="carousel slide hero-carousel" data-ride="carousel">
+            <div class="carousel-inner">
+                <div class="carousel-item active">
+                    <div class="hero-image" style="background-image: url('/assets/bg-img/bg1.webp');"></div>
+                </div>
+                <div class="carousel-item">
+                    <div class="hero-image" style="background-image: url('/assets/bg-img/bg2.webp');"></div>
+                </div>
+                <div class="carousel-item">
+                    <div class="hero-image" style="background-image: url('/assets/bg-img/bg3.webp');"></div>
+                </div>
+                <div class="carousel-item">
+                    <div class="hero-image" style="background-image: url('/assets/bg-img/bg4.webp');"></div>
+                </div>
+                <div class="carousel-item">
+                    <div class="hero-image" style="background-image: url('/assets/bg-img/bg5.webp');"></div>
+                </div>
+            </div>
+        </div>
+        <div class="container hero-content">
+            <h1 class="text display-4">Renaissance School of Science and Technology Inc.,</h1>
+            <p class="text1 lead">Where innovation and learning converge to shape the future leaders of tomorrow!</p>
+            <a href="N/A" class="btn btn-custom btn-lg mt-3">Contact Us</a>
+        </div>
+    </section>
+
+    <section id="about" class="about-section">
+        <div class="container">
+            <h2 class="section-title"><strong>ABOUT US</strong></h2>
+            <p>Renaissance School of Science and Technology is founded on the belief that every child deserves an education as a vehicle for their self-enrichment.
+                When the Renaissance School of Science and Technology opened its gates in the beginning it catered to the children of its faculty, employees, and those referred by kind-hearted benefactors in the town of Morong, province of Rizal 
+                 Strongly, The School grew as it accepted more students from the neighboring towns of Cardona, Binangonan, Baras, Teresa, and Pililla, all in Rizal, among others.<br>
+                 For years, the School struggled against the raising of operating the school. However, the founder/chairwoman of RSST kept the school afloat with her own personal resources.<br>
+                As the school complied with the continuous improvements and updated policies of the Department of Education. RSST managed to complete its curricula k to 12 offerings that now include:<br>
+                <br>
+            Pre-School
+            <br>
+            Basic Education<br>
+            Junior High School<br>
+            Senior High School<br>
+            College Courses<br>
+            3-Year Diploma Courses <br>
+            TESDA Courses<br>
+            <br>
+                 As the school continued to upgrade its physical facilities, it also evolved in providing its students state of the art gadgets required to meet the academic standards, especially during the time of the pandemic that required an online method of learning.<br>
+                 Our student population continues to grow to offer the availability of scholarships, grants, and government subsidies such as Tulong Dunong and the practical offer in the TESDA courses such as Housekeeping, Barista, Events Management, and Cookery among others. Thousands of out of school youth, housewives, retirees, and single moms and dads found employment as a result of getting their training from said TESDA courses.<br>
+                 Today, RSST is happy to announce that it has maintained its version of helping the marginalized sector of our society to find gainful employment or set up their SMEs Small enterprises and turn become archive contributors to the community development</p>
+            
+        </div>
+    </section>
+
+    <section id="video-section" style="
+        background: url('/assets/bg-img/bg5.webp') no-repeat center center; 
+        background-size: cover; 
+        padding: 60px 0;
+        position: relative;">
+    <div class="container text-center">
+        <h2 class="section-title" style="color: rgb(46, 45, 45); background-color: rgb(30, 121, 207); margin: 5px; padding: 10px; border-radius: 50px; border: 2px solid rgb(51, 241, 194);">
+            PROGRAMS
+        </h2>
+
+        <div class="video-container">
+            <div class="aspect-ratio-box">
+                <img class="video-thumbnail" src="/assets/bg-img/logo-rsst.webp" alt="Video Thumbnail" />
+                <div class="play-button">
+                    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor">
+                        <path d="M8 5v14l11-7z"/>
+                    </svg>
+                </div>
+                <!--VIDEO-->
+                <iframe class="embed-responsive-item" src="/assets/video/?autoplay=1" allow="autoplay; fullscreen" allowfullscreen></iframe>
+            </div>
+        </div>
+        
+    </div>
+</section>
+
+<section id="program" class="program-section">
+    <div class="program-container">
+        <h2 class="section-title"><strong>COURSES</strong></h2>
+        <div class="card-container">
+            <!------------ELEMENTARY------------------->
+            <a href="N/A" class="program-card">
+                <img src="/assets/bg-img/bg2.webp" alt="Courses" class="card-image">
+                <div class="card-content">
+                    <h2 class="card-title">ELEMENTARY</h2>
+                    <p class="card-price">N/A</p>
+                    <ul class="card-details">
+                        <li>One class per week</li>
+                        <li>10% discount</li>
+                        <button class="btn btn-primary btn-lg btn-block my-3">
+                            Enroll Now!
+                        </button>
+                    </ul>
+                </div>
+            </a>    
+            <!------------JUNIOR HIGH------------------->
+            <a href="N/A" class="program-card">
+                <img src="/assets/bg-img/bg2.webp" alt="Courses" class="card-image">
+                <div class="card-content">
+                    <h2 class="card-title">JUNIOR HIGH</h2>
+                    <p class="card-price">N/A</p>
+                    <ul class="card-details">
+                        <li>One class per week</li>
+                        <li>10% discount</li>
+                        <button class="btn btn-primary btn-lg btn-block my-3">
+                            Enroll Now!
+                        </button>
+                    </ul>
+                </div>
+            </a>    
+            <!------------SENIOR HIGH------------------->
+            <a href="N/A" class="program-card">
+                <img src="/assets/bg-img/bg3.webp" alt="Courses" class="card-image">
+                <div class="card-content">
+                    <h2 class="card-title">SENIOR HIGH</h2>
+                    <p class="card-price">N/A</p>
+                    <ul class="card-details">
+                        <li>One class per week</li>
+                        <li>10% discount</li>
+                        <button class="btn btn-primary btn-lg btn-block my-3">
+                            Enroll Now!
+                        </button>
+                    </ul>
+                </div>
+            </a>    
+            <!------------3-YEAR-DIPLOMA------------------->
+            <a href="N/A" class="program-card">
+                <img src="/assets/bg-img/bg2.webp" alt="Courses" class="card-image">
+                <div class="card-content">
+                    <h2 class="card-title">3-YEAR DIPLIMA</h2>
+                    <p class="card-price">N/A</p>
+                    <ul class="card-details">
+                        <li>One class per week</li>
+                        <li>10% discount</li>
+                        <button class="btn btn-primary btn-lg btn-block my-3">
+                            Enroll Now!
+                        </button>
+                    </ul>
+                </div>
+            </a>    
+            <!------------COLLEGE------------------->
+            <a href="N/A" class="program-card">
+                <img src="/assets/bg-img/bg5.webp" alt="Courses" class="card-image">
+                <div class="card-content">
+                    <h2 class="card-title">COLLEGE</h2>
+                    <p class="card-price">N/A</p>
+                    <ul class="card-details">
+                        <li>One class per week</li>
+                        <li>10% discount</li>
+                        <button class="btn btn-primary btn-lg btn-block my-3">
+                            Enroll Now!
+                        </button>
+                    </ul>
+                </div>
+            </a>    
+            <!------------TESDA------------------->
+            <a href="N/A" class="program-card">
+                <img src="/assets/bg-img/bg4.webp" alt="Courses" class="card-image">
+                <div class="card-content">
+                    <h2 class="card-title">TESDA</h2>
+                    <p class="card-price">N/A</p>
+                    <ul class="card-details">
+                        <li>One class per week</li>
+                        <li>10% discount</li>
+                        <button class="btn btn-primary btn-lg btn-block my-3">
+                            Enroll Now!
+                        </button>
+                    </ul>
+                </div>
+            </a>    
+        </div>
+    </div>
+</section>
+
+    
+<section class="schedule-section" id="class">
+    <div class="container">
+        <h2 class="section-title"><strong>OPEN DAY SCHEDULE</strong></h2>
+        <div class="schedule-grid">
+            <!-- Monday -->
+            <div class="schedule-card">
+                <div class="day-header">Monday</div>
+                <div class="schedule-content">
+                    <div class="time-block">
+                        <div class="time">7:00AM - 5:00PM</div>
+                        <div class="classes">
+                            <div class="class">Registrar</div>
+                            <div class="class">Cashier</div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Tuesday -->
+            <div class="schedule-card">
+                <div class="day-header">Tuesday</div>
+                <div class="schedule-content">
+                    <div class="time-block">
+                        <div class="time">7:00AM - 5:00PM</div>
+                        <div class="classes">
+                            <div class="class">Registrar</div>
+                            <div class="class">Cashier</div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Wednesday -->
+            <div class="schedule-card">
+                <div class="day-header">Wednesday</div>
+                <div class="schedule-content">
+                    <div class="time-block">
+                        <div class="time">7:00AM - 5:00PM</div>
+                        <div class="classes">
+                            <div class="class">Registrar</div>
+                            <div class="class">Cashier</div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Thursday-->
+            <div class="schedule-card">
+                <div class="day-header">Thursday</div>
+                <div class="schedule-content">
+                    <div class="time-block">
+                        <div class="time">7:00AM - 5:00PM</div>
+                        <div class="classes">
+                            <div class="class">Registrar</div>
+                            <div class="class">Cashier</div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Friday -->
+            <div class="schedule-card">
+                <div class="day-header">Friday</div>
+                <div class="schedule-content">
+                    <  <div class="time-block">
+                        <div class="time">7:00AM - 5:00PM</div>
+                        <div class="classes">
+                            <div class="class">Registrar</div>
+                            <div class="class">Cashier</div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Saturday -->
+            <div class="schedule-card">
+                <div class="day-header">Saturday</div>
+                <div class="schedule-content">
+                    <div class="time-block">
+                        <div class="time">7:00AM - 5:00PM</div>
+                        <div class="classes">
+                            <div class="class">Registrar</div>
+                            <div class="class">Cashier</div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Sunday -->
+            <div class="schedule-card">
+                <div class="day-header">Sunday</div>
+                <div class="schedule-content">
+                    <div class="time-block">
+                        <div class="time">7:00AM - 5:00PM</div>
+                        <div class="classes">
+                            <div class="class">Registrar</div>
+                            <div class="class">Cashier</div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+    
+<!-----------------------------------SCHOLARS------------------------------------------------->
+<section id="scholar" class="scholar-section">
+    <div class="container">
+        <h2 class="section-title">SCHOLARS</h2>
+        <div class="scholar-grid">
+            <div class="scholar-card">
+                <div class="scholar-image-wrapper blue">
+                    <img src="/assets/bg-img/logo-rsst.webp" alt="Margellene Anne Vicente Lugto " class="scholar-image">
+                </div>
+                <h3><strong>Margellene Anne Vicente Lugto </strong></h3>
+                <p class="bio" id="bio-1">Achivements
+                    <span class="more-text" style="display:none;">prior to actualising RSST School, I gained experience working on several international social projects with entrepreneurs.</span>
+                </p>
+                <a href="javascript:void(0);" class="read-more" onclick="toggleBio(this, 'bio-1')">Read More</a>
+            </div>
+    
+            <div class="scholar-card">
+                <div class="scholar-image-wrapper blue">
+                    <img src="/assets/bg-img/logo-rsst.webp" alt="Margellene Anne Vicente Lugto " class="scholar-image">
+                </div>
+                <h3><strong>Margellene Anne Vicente Lugto </strong></h3>
+                <p class="bio" id="bio-2">Achivements
+                    <span class="more-text" style="display:none;">years of experience, Jonathan has trained students at all levels of martial arts.</span>
+                </p>
+                <a href="javascript:void(0);" class="read-more" onclick="toggleBio(this, 'bio-2')">Read More</a>
+            </div>
+    
+            <div class="scholar-card">
+                <div class="scholar-image-wrapper red">
+                    <img src="/assets/bg-img/logo-rsst.webp" alt="Margellene Anne Vicente Lugto" class="scholar-image">
+                </div>
+                <h3><strong>Margellene Anne Vicente Lugto </strong></h3>
+                <p class="bio" id="bio-3">Achivements
+                    <span class="more-text" style="display:none;">Reece specializes in teaching advanced techniques and working with competitive athletes to improve their performance.</span>
+                </p>
+                <a href="javascript:void(0);" class="read-more" onclick="toggleBio(this, 'bio-3')">Read More</a>
+            </div>
+    
+            <div class="scholar-card">
+                <div class="scholar-image-wrapper yellow">
+                    <img src="/assets/bg-img/logo-rsst.webp" alt="Margellene Anne Vicente Lugto" class="scholar-image">
+                </div>
+                <h3><strong>Margellene Anne Vicente Lugto </strong></h3>
+                <p class="bio" id="bio-4">Achivements
+                    <span class="more-text" style="display:none;">ensuring a comprehensive training approach.</span>
+                </p>
+                <a href="javascript:void(0);" class="read-more" onclick="toggleBio(this, 'bio-4')">Read More</a>
+            </div>
+    </div>
+    </div>
+    
+</section>
+
+    
+
+<section id="testimonials" class="testimonial-section">
+    <div class="container">
+        <h2 class="section-title">Testimonials</h2>
+        <div id="testimonialContainer">
+            <!-- Testimonial Items -->
+            <div class="testimonial-item active">
+                <blockquote class="blockquote">
+                    <p class="mb-0">
+                        "Renaissance School of Science and Technology has provided me with an exceptional learning experience. The dedicated staff, state-of-the-art facilities, and comprehensive curriculum have allowed me to grow academically and personally. I am proud to be a part of RSST!"
+                    </p>
+                    <p class="testimonial-author" style="font-size: 16px; font-weight: bold; color: #333;">
+                        John Doe, Senior High School Student
+                    </p>
+                </blockquote>
+            </div>
+            <div class="testimonial-item active">
+                <blockquote class="blockquote">
+                    <p class="mb-0">
+                        "Renaissance School of Science and Technology has provided me with an exceptional learning experience. The dedicated staff, state-of-the-art facilities, and comprehensive curriculum have allowed me to grow academically and personally. I am proud to be a part of RSST!"
+                    </p>
+                    <p class="testimonial-author" style="font-size: 16px; font-weight: bold; color: #333;">
+                        John Doy, Senior High School Student
+                    </p>
+                </blockquote>
+            </div>
+            <div class="testimonial-item active">
+                <blockquote class="blockquote">
+                    <p class="mb-0">
+                        "Renaissance School of Science and Technology has provided me with an exceptional learning experience. The dedicated staff, state-of-the-art facilities, and comprehensive curriculum have allowed me to grow academically and personally. I am proud to be a part of RSST!"
+                    </p>
+                    <p class="testimonial-author" style="font-size: 16px; font-weight: bold; color: #333;">
+                        John Daw, Senior High School Student
+                    </p>
+                </blockquote>
+            </div>
+            <div class="testimonial-item active">
+                <blockquote class="blockquote">
+                    <p class="mb-0">
+                        "Renaissance School of Science and Technology has provided me with an exceptional learning experience. The dedicated staff, state-of-the-art facilities, and comprehensive curriculum have allowed me to grow academically and personally. I am proud to be a part of RSST!"
+                    </p>
+                    <p class="testimonial-author" style="font-size: 16px; font-weight: bold; color: #333;">
+                        John Dyan, Senior High School Student
+                    </p>
+                </blockquote>
+            </div>
+            <div class="testimonial-item active">
+                <blockquote class="blockquote">
+                    <p class="mb-0">
+                        "Renaissance School of Science and Technology has provided me with an exceptional learning experience. The dedicated staff, state-of-the-art facilities, and comprehensive curriculum have allowed me to grow academically and personally. I am proud to be a part of RSST!"
+                    </p>
+                    <p class="testimonial-author" style="font-size: 16px; font-weight: bold; color: #333;">
+                        John Dillan, Senior High School Student
+                    </p>
+                </blockquote>
+            </div>
+            <!----ADD HERE A TESTIMONIAL FOR NEXT BUTTON----->
+        </div>
+        <!-- Navigation -->
+        <div class="testimonial-navigation">
+            <button id="prevTestimonial" class="btn btn-primary">Previus</button>
+            <button id="nextTestimonial" class="btn btn-primary">Next</button>
+        </div>
+    </div>
+</section>
+
+    
+    
+
+<footer id="contact" class="footer_section">
+    <div class="container text-center">
+        <h3>Renaissance School of Science and technology Inc.,</h3>
+        <p>04 National Road Sitio Paglabas, Brgy. San Pedro, Morong, Rizal</p>
+        <p>Morong, Rizal</p>
+        <p>Email: <a href="Email here">N/A</a></p>
+        
+        <div class="follow-section">
+            <h3>Follow Us</h3>
+            <div class="social-links">
+                <a href="https://www.facebook.com/Rsstincofficial" target="_blank" class="btn btn-outline-light">Facebook</a>
+                <a href="N/A" target="_blank" class="btn btn-outline-light">Instagram</a>
+            </div>
+        </div>
+        
+        <div class="copyright">
+            <p>&copy; 2024 All Rights Reserved By
+                <a href="https://wWW.facebook.com/Spiderken1" class="kenneth-link">Kenneth Nagsuban</a>
+            </p>
+        </div>
+    </div>
+</footer>
+    <script src="https://code.jquery.com/jquery-3.4.1.min.js"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js"></script>
+    <script>
+        $('.carousel').carousel({
+            interval: 2000,
+            ride: 'carousel'
+        });
+
+        document.addEventListener('DOMContentLoaded', () => {
+            const testimonials = document.querySelectorAll('.testimonial-item');
+            let currentIndex = 0;
+    
+            const updateTestimonials = () => {
+                testimonials.forEach((item, index) => {
+                    item.classList.toggle('active', index === currentIndex);
+                });
+            };
+    
+            document.getElementById('prevTestimonial').addEventListener('click', () => {
+                currentIndex = (currentIndex - 1 + testimonials.length) % testimonials.length;
+                updateTestimonials();
+            });
+    
+            document.getElementById('nextTestimonial').addEventListener('click', () => {
+                currentIndex = (currentIndex + 1) % testimonials.length;
+                updateTestimonials();
+            });
+    
+            updateTestimonials();
+        });
+        
+    </script>
+    <script>
+        
+        window.onload = function() {
+            var bioSections = document.querySelectorAll('.bio .more-text');
+            bioSections.forEach(function(bio) {
+                bio.style.display = 'none';
+            });
+        };
+    
+        
+        function toggleBio(element, bioId) {
+            var bio = document.getElementById(bioId);
+            var moreText = bio.querySelector('.more-text');
+            var readMoreLink = element;
+    
+            if (moreText.style.display === "none") {
+                moreText.style.display = "inline";
+                readMoreLink.innerHTML = "Read Less";
+            } else {
+                moreText.style.display = "none";
+                readMoreLink.innerHTML = "Read More";
+            }
+        }
+    </script>
+    <script>
+        document.querySelector('.video-container').addEventListener('click', function (event) {
+            if (event.target.closest('.play-button') || event.target.classList.contains('video-thumbnail')) {
+                const thumbnail = this.querySelector('.video-thumbnail');
+                const playButton = this.querySelector('.play-button');
+                const iframe = this.querySelector('.embed-responsive-item');
+    
+                thumbnail.style.display = 'none';
+                playButton.style.display = 'none';
+                iframe.style.display = 'block';
+    
+                const videoSrc = '/assets/video/1.mp4'; 
+                if (!iframe.getAttribute('src')) {
+                    iframe.setAttribute('src', videoSrc);
+                }
+            }
+        });
+    
+        window.addEventListener('DOMContentLoaded', function () {
+            const iframe = document.querySelector('.embed-responsive-item');
+            iframe.setAttribute('src', '');
+            iframe.style.display = 'none';
+        });
+    </script>
+    
+
+    
+    
+    
+</body>
+</html>
